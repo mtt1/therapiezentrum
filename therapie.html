@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>THERAPIEZENTRUM Berlin e. V. - Therapieangebot</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+        <style>
+            [id] {
+                scroll-margin-top: 4rem;
+                scroll-snap-margin-top: 4rem;
+            }
+        </style>
+    </head>
+    <body class="subpixel-antialiased">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="#">upgrade your browser</a> to improve your experience.
+            </p>
+        <![endif]-->
+
+        <header class="sticky top-0 md:bg-white md:pb-1 shadow-md">
+            <div class="hidden md:block">
+                <div class="w-full h-2 m-0 p-0 bg-green-500"></div>
+                <div class="w-2 h-10 m-0 p-0 bg-green-500"></div>
+            </div>
+
+            <!--<div class="container bg-white mx-auto px-4 mt-10 mb-10">-->
+            <div
+                class="md:container bg-green-500 md:bg-white mx-auto px-4 py-3 md:py-0 2xl:px-40 md:-mt-3 md:mb-4"
+            >
+                <nav
+                    x-data="{ menuOpen: false, dropdownOpen: false }"
+                    class="md:flex md:justify-between text-lg md:text-base lg:text-lg"
+                >
+                    <div class="flex items-center justify-between">
+                        <div class="md:font-medium">
+                            <a href="index.html">THERAPIEZENTRUM Berlin e. V.</a>
+                        </div>
+
+                        <!--<div class="nav-content flex justify-between">-->
+                        <div class="md:hidden">
+                            <!--class="text-black hover:text-green-200 hover:text-green-500 focus:text-green-500 focus:outline-none"-->
+                            <button
+                                @click="menuOpen = true"
+                                type="button"
+                                class="text-black md:hover:text-green-500 focus:outline-none"
+                            >
+                                <svg
+                                    class="h-6 w-6 fill-current"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        x-show="menuOpen"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                    <path
+                                        x-show="!menuOpen"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h7"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!--<div x-show="menuOpen" @click.away="menuOpen = false" class="md:block">-->
+                    <div
+                        :class="{ 'block': menuOpen, 'hidden': !menuOpen }"
+                        @click.away="menuOpen = false"
+                        class="mt-4 md:mt-0 -ml-2 md:ml-0 md:flex"
+                    >
+                        <!--<div x-data="{ dropdownOpen: false }">-->
+                        <div class="dropdown">
+                            <a
+                                @mouseover="dropdownOpen = true"
+                                class="hidden md:block rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                href="therapie.html"
+                                >Therapie ▾</a
+                            >
+                            <a
+                                @click="dropdownOpen = true"
+                                class="block md:hidden rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                >Therapie ▾</a
+                            >
+                            <div
+                                x-show="dropdownOpen"
+                                @mouseover.away="dropdownOpen = false"
+                                @click.away="dropdownOpen = false"
+                                @click="dropdownOpen = false, menuOpen = false"
+                                class="md:absolute md:shadow-lg"
+                            >
+                                <div class="ml-4 md:ml-0 md:bg-green-500 md:rounded px-2 pt-2 pb-2">
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="#"
+                                        >Übersicht</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#einzeltherapie"
+                                        >Einzeltherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#gruppentherapie"
+                                        >Gruppentherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#atemtherapie"
+                                        >Atemtherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#gestalttherapie"
+                                        >Gestalt- und Körpertherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#kindertherapie"
+                                        >Kinder- und Jugendlichentherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#paartherapie"
+                                        >Paar- und Familientherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#tiefenpsychologie"
+                                        >Tiefenpsychologisch fundierte Psychotherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#vt"
+                                        >Verhaltenstherapie</a
+                                    >
+                                </div>
+                                <!--<ul class="ml-4 md:ml-0 md:bg-green-500 md:rounded px-2 pt-2 md:pb-2">
+                                    <li class="md:hidden"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html">Übersicht</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#einzeltherapie">Einzeltherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#gruppentherapie">Gruppentherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#atemtherapie">Atemtherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#gestalttherapie">Gestalt- und Körpertherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#kindertherapie">Kinder- und Jugendlichentherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#paartherapie">Paar- und Familientherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#tiefenpsychologie">Tiefenpsychologisch fundierte Psychotherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#vt">Verhaltenstherapie</a></li>
+                                </ul>-->
+                            </div>
+                        </div>
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            >Beratung</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            >Supervision</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            href="team.html"
+                            >Team</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            href="./index.html#kontakt"
+                            @click="menuOpen = false"
+                            >Kontakt</a
+                        >
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container mx-auto mt-5 px-4 2xl:px-40">
+            <main class="lg:px-40 min-h-screen">
+                <div>
+                    <h1 class="text-4xl md:text-5xl">Therapieangebote</h1>
+                    <div class="mt-3 md:mt-5">
+                        Wir bieten Paar- und Familientherapie sowie Einzeltherapie und Gruppentherapie
+                        (Selbstzahler) an. Gearbeitet wird mit Erwachsenen, Jugendlichen und Kindern. Die Art
+                        der Therapie richtet sich nach der jeweiligen Persönlichkeit und der spezifischen
+                        Problematik. Häufige Symptome sind u.a. Ängste, Zwänge, Depressionen, Kontakt- und
+                        Beziehungsstörungen, Arbeits- und Lernstörungen, psychosomatische Beschwerden sowie
+                        Suchtprobleme.
+                    </div>
+                    <div>
+                        Die gesetzlichen Krankenkassen übernehmen die Behandlungskosten bei Psychoanalyse,
+                        tiefenpsychologisch fundierter Psychotherapie und Verhaltenstherapie.
+                    </div>
+                </div>
+                <div id="einzeltherapie" class="pt-10">
+                    <h1 class="text-3xl">Einzeltherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Einzeltherapeutische Sitzungen (50 Min.) finden in der Regel ein- bis zweimal
+                            wöchentlich statt. Die Einzeltherapie bietet die Möglichkeit, die jeweilige
+                            Problematik individuell und intensiv anzugehen.
+                        </p>
+                        <p>
+                            Im Vordergrund steht dabei, im geschützten Raum der therapeutischen Beziehung eine
+                            Atmosphäre des Vertrauens herzustellen. Auf dieser Grundlage können konflikthafte
+                            Bereiche der Persönlichkeit besprochen, neu erlebt und alternative
+                            Handlungsmöglichkeiten entwickelt werden. Es kann im Verlauf der Behandlung
+                            sinnvoll werden, die Einzelarbeit durch Teilnahme an einer therapeutischen Gruppe
+                            zu ergänzen.
+                        </p>
+                    </div>
+                </div>
+                <div id="gruppentherapie" class="pt-10">
+                    <h1 class="text-3xl">Gruppentherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Die Therapiegruppe bietet einen sicheren Rahmen, in dem die TeilnehmerInnen
+                            Kontakt zu sich selbst und zu anderen finden können. In der Beziehung zum/r
+                            anderen werden mögliche Probleme mit Nähe und Distanz, beim Ausdruck von Gefühlen
+                            und Austragen von Konflikten, Ängste, Scheu, Vermeidung von Kontakt und vieles
+                            mehr deutlich.
+                        </p>
+                        <p>
+                            Die therapeutische Arbeit richtet sich darauf, diese Probleme genauer anzuschauen,
+                            sie emotional im Kontakt zu erfahren, sich selbst damit anzunehmen und dann
+                            andere, neue Möglichkeiten für sich zu entdecken und auszuprobieren. Die Gruppe
+                            bietet dazu viele kreative Formen.
+                        </p>
+                    </div>
+                </div>
+                <div id="atemtherapie" class="pt-10">
+                    <h1 class="text-3xl">Atemtherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Im Vordergrund der Atemtherapie steht nicht – wie man zuerst glauben mag - die
+                            funktionelle Atemstörung oder das pathologische Atemmuster, sondern der ganze
+                            Mensch mit seinem ihm eigenen Atemrhythmus. Den Atem lassend, ohne Erwartung
+                            kennen zulernen, bedeutet auch, mich mit all meinen Anteilen besser kennen
+                            zulernen, zu akzeptieren.
+                        </p>
+                        <p>
+                            Das gewachsene Körperbewusstsein kann helfen, Probleme des Alltags besser zu
+                            bewältigen, da die innere Sicherheit und die Basis wächst, auch schmerzhafte
+                            Gefühle ertragen und integrieren zu können.
+                        </p>
+                        <p>
+                            Da der Atem an allen Aufgaben des Organismus teilnimmt, kann die Arbeit bei
+                            körperlichen Beschwerden helfen (z.B. Atembeschwerden, Verspannungen, Schmerzen
+                            des Bewegungsapparates, Migräne) sowie auch bei allen psycho-somatischen
+                            Beschwerden. Sie bietet aber auch einen Weg, der über das körperliche Gesunden
+                            hinaus zu intensiver Selbsterfahrung führen und - wenn nötig - mit Methoden des
+                            NLP unterstützt werden kann.
+                        </p>
+                        <p>
+                            Gearbeitet wird ausschließlich in Einzelarbeit im Liegen mit bestimmten
+                            Bewegungsabfolgen oder Tönen.
+                        </p>
+                        <p>
+                            Weitere Informationen zum Thema finden Sie unter
+                            <a href="http://www.gabrielenordmann.de">http://www.gabrielenordmann.de</a>.
+                        </p>
+                    </div>
+                </div>
+                <div id="gestalttherapie" class="pt-10">
+                    <h1 class="text-3xl">Gestalt- und Körpertherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Gestaltherapie ist eine Psychotherapiemethode, die um 1950 von
+                            <a href="http://www.gestalt.org/fritz.htm">Fritz Perls</a> in den USA entwickelt
+                            wurde. Historisch geht sie auf die Psychoanalyse und deren körpertherapeutische
+                            Weiterentwicklung durch Wilhelm Reich zurück.
+                        </p>
+                        <p>
+                            Eine weitere ihrer wesentlichen Wurzeln ist die sog. "Gestalt"-Psychologie
+                            (Erforschung ganzheitlicher menschlicher Wahrnehmungs-Prozesse), von der sie ihren
+                            Namen bekommen hat. Die Gestalt-Therapie ist vor allem durch ihren
+                            gegenwartsbezogenen Ansatz gekennzeichnet, d.h., sie fördert und nutzt vor allem
+                            das Gewahrsein des aktuellen Erlebens des Klienten im 'Hier und Jetzt' als dem
+                            eigentlichen Dreh- und Angelpunkt menschlicher Veränderungsprozesse.
+                        </p>
+                        <p>
+                            Neben dem sprachlichen Inhalt ("Was" wird besprochen) gilt dem "Wie" in der
+                            therapeutischen Kommunikation die besondere Aufmerksamkeit: Emotionaler Tonfall
+                            der Sprache, Lautstärke, Mimik, Gestik, Atmung, Körperhaltung und -bewegung sowie
+                            deren mögliche Blockierungen werden jeweils bewußt gemacht, um den natürlichen
+                            Fluß der Lebensenergie wieder in Gang zu setzen.
+                        </p>
+                        <p>
+                            Durch die Einbeziehung von Körperwahrnehmung und Bewegung sowie andere nonverbale
+                            Methoden (z.B. kreative Medien) sind diese Verfahren in besonderer Weise geeignet,
+                            auch Menschen mit geringem Verbalisierungsvermögen zu erreichen.
+                        </p>
+                    </div>
+                </div>
+                <div id="kindertherapie" class="pt-10">
+                    <h1 class="text-3xl">Kinder- und Jugendlichentherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Die Kinder- und Jugendlichentherapie nach der Methode der Psychologischen
+                            Psychotherapie (ppt) ist ein verschiedene Methoden und Techniken integrierender
+                            Therapieansatz. Es sind entwicklungspsychologische, psychoanalytische,
+                            lerntheoretische und systemische Erklärungsansätze und Änderungs- modelle
+                            gleichermaßen vertreten.
+                        </p>
+                        <p>
+                            Ziel ist die Entwicklung und Heilung der ganzen Persönlichkeit. Dabei werden die
+                            innerpsychischen (unbewußten) Aspekte, wie auch die Erweiterung von kognitiven und
+                            sozialen Fähigkeiten eingeschlossen. Die begleitende Beratung der engeren
+                            Bezugspersonen ist wichtiger Bestandteil der Therapie. Tragend für den heilenden
+                            Veränderungsprozeß ist die therapeutische Beziehung.
+                        </p>
+                    </div>
+                </div>
+                <div id="paartherapie" class="pt-10">
+                    <h1 class="text-3xl">Paar- und Familientherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            In der Paar- und Familientherapie beraten und begleiten wir Sie bei der Suche nach
+                            Lösungen von Beziehungsstörungen. Hierbei geht es insbesondere um das gegenseitige
+                            Verstehen der Probleme des Einzelnen und um den Umgang damit.
+                        </p>
+                    </div>
+                </div>
+                <div id="psychoanalyse" class="pt-10">
+                    <h1 class="text-3xl">Psychoanalyse</h1>
+                    <div class="mt-3">
+                        <p>
+                            Ziele der Psychoanalyse sind die Reifung der Persönlichkeit sowie die Entwicklung
+                            zur Autonomie und deren Verwirklichung. Mit der psychoanalytischen Behandlung soll
+                            die Ablösung von verinnerlichten, aus der Kindheit stammenden Gefühls- und
+                            Erlebnisvorstellungen erreicht werden, die aufgrund ihrer Beschaffenheit
+                            krankheitsfördernd sind. Es soll die Aufschlüsselung verdrängter, unbewusster
+                            neurotischer Konflikte bewirkt werden. Durch Deutungen des sogenannten
+                            Übertragungs- und Gegenübertragungsgeschens, in dem sich die Beziehung zwischen
+                            PatientIn und BehandlerIn ausdrückt, sollen Veränderungen herbeigeführt werden;
+                            ebenso durch die Förderung regressiver Prozesse und der Arbeit mit Träumen.
+                        </p>
+                        <p>
+                            Das Standardverfahren der Psychoanalyse wird in der Regel so durchgeführt, dass
+                            der / die PatientIn auf der Couch liegt. Die Behandlungsfrequenz beträgt zwischen
+                            zwei und vier Stunden pro Woche.
+                        </p>
+                    </div>
+                </div>
+                <div id="tiefenpsychologie" class="pt-10">
+                    <h1 class="text-3xl">Tiefenpsychologisch fundierte Psychotherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Die tiefenpsychologisch fundierte Therapie ist ein von der Psychoanalyse
+                            abgeleitetes Verfahren. Im Unterschied zur Psychoanalyse handelt es sich hierbei
+                            um eine konfliktzentrierte Vorgehensweise.
+                        </p>
+                        <p>
+                            Versucht wird, die aktuellen Schwierigkeiten des Patienten zu klären und aus der
+                            eigenen Lebensgeschichte heraus verstehbar zu machen.
+                        </p>
+                        <p>
+                            Die Stundenzahl pro Behandlung liegt zwischen 50 und 100 Stunden mit einer Stunde
+                            pro Woche.
+                        </p>
+                        <p>
+                            Bei der tiefenpsychologisch fundierten Psychotherapie sitzen sich PatientIn und
+                            BehandlerIn gegenüber.
+                        </p>
+                    </div>
+                </div>
+                <div id="vt" class="pt-10">
+                    <h1 class="text-3xl">Verhaltenstherapie</h1>
+                    <div class="mt-3">
+                        <p>
+                            Kennzeichnend für die Vorgehensweise in der Verhaltenstherapie (VT) ist folgendes:
+                            Ihre aktuellen Probleme werden auf den unterschiedlichen Ebenen (körperliche
+                            Auswirkung, beobachtbares Verhalten, Gedanken, Einstellungen, innere Regeln,
+                            Lebenspläne, zugehörige Gefühle ...) beschrieben, konkretisiert und analysiert.
+                            Wodurch wird ihr Problem ausgelöst, was sind die Konsequenzen, welche
+                            Denkstrukturen, Gewohnheiten und äußeren Bedingungen halten Ihre Probleme aufrecht
+                            ? Was wollen Sie ändern ?.
+                        </p>
+                        <p>
+                            Gearbeitet wird überwiegend an gegenwärtigen Situationen. Wichtig für ein besseres
+                            Verständnis ist auch der Zusammenhang zwischen Ihrem Problem und Ihrer Lebens-
+                            bzw. Entstehungsgeschichte. Nach der Zieldefinition (was soll in Zukunft anders
+                            werden ?) werden gemeinsam mögliche Maßnahmen und Vorgehensweisen festgelegt. Die
+                            Ziele werden in kleine erreichbare Schritte unterteilt. Vorgehensweisen und
+                            Maßnahmen sollen für Sie durchschaubar und verstehbar werden.
+                        </p>
+                        <p>
+                            Sie sind aktiv an der Problembeschreibung, der Problemanalyse, der Zielsetzung und
+                            letztendlich an der Umsetzung und Veränderung beteiligt.
+                        </p>
+                        <p>
+                            Vorgehensweise ist eher lösungsorientiert als problemorientiert. Ein wesentliches
+                            Merkmal der VT sind weiterhin die selbsttherapeutischen Maßnahmen, die Sie
+                            zwischen den einzelnen Therapiesitzungen durchführen. In den Stunden wird z.B. mit
+                            Selbstbeobachtung, praktischen Übungen, Handlungsplänen, Selbstbelohnung,
+                            Wahrnehmungs- und Erfahrungsübungen, Entspannung, Gesprächen, Rollenspielen ...
+                            gearbeitet, um Veränderungen herbeizuführen.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <div class="w-2 h-20 m-0 ml-auto p-0 bg-green-500"></div>
+            <div class="w-full h-2 m-0 p-0 bg-green-500"></div>
+        </footer>
+
+        <script src="" async defer></script>
+    </body>
+</html>

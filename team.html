@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html style="scroll-behavior: smooth">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>THERAPIEZENTRUM Berlin e. V.</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href=""> -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+        <style>
+            [id] {
+                scroll-margin-top: 6rem;
+                scroll-snap-margin-top: 6rem;
+            }
+        </style>
+    </head>
+    <body class="subpixel-antialiased">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="#">upgrade your browser</a> to improve your experience.
+            </p>
+        <![endif]-->
+
+        <header class="sticky top-0 md:bg-white md:pb-1 shadow-md">
+            <div class="hidden md:block">
+                <div class="w-full h-2 m-0 p-0 bg-green-500"></div>
+                <div class="w-2 h-10 m-0 p-0 bg-green-500"></div>
+            </div>
+
+            <!--<div class="container bg-white mx-auto px-4 mt-10 mb-10">-->
+            <div
+                class="md:container bg-green-500 md:bg-white mx-auto px-4 py-3 md:py-0 2xl:px-40 md:-mt-3 md:mb-4"
+            >
+                <nav
+                    x-data="{ menuOpen: false, dropdownOpen: false }"
+                    class="md:flex md:justify-between text-lg md:text-base lg:text-lg"
+                >
+                    <div class="flex items-center justify-between">
+                        <div class="md:font-medium">
+                            <a href="index.html">THERAPIEZENTRUM Berlin e. V.</a>
+                        </div>
+
+                        <!--<div class="nav-content flex justify-between">-->
+                        <div class="md:hidden">
+                            <!--class="text-black hover:text-green-200 hover:text-green-500 focus:text-green-500 focus:outline-none"-->
+                            <button
+                                @click="menuOpen = true"
+                                type="button"
+                                class="text-black md:hover:text-green-500 focus:outline-none"
+                            >
+                                <svg
+                                    class="h-6 w-6 fill-current"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        x-show="menuOpen"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                    <path
+                                        x-show="!menuOpen"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 6h16M4 12h16M4 18h7"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!--<div x-show="menuOpen" @click.away="menuOpen = false" class="md:block">-->
+                    <div
+                        :class="{ 'block': menuOpen, 'hidden': !menuOpen }"
+                        @click.away="menuOpen = false"
+                        class="mt-4 md:mt-0 -ml-2 md:ml-0 md:flex"
+                    >
+                        <!--<div x-data="{ dropdownOpen: false }">-->
+                        <div class="dropdown">
+                            <a
+                                @mouseover="dropdownOpen = true"
+                                class="hidden md:block rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                href="therapie.html"
+                                >Therapie ▾</a
+                            >
+                            <a
+                                @click="dropdownOpen = true"
+                                class="block md:hidden rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                >Therapie ▾</a
+                            >
+                            <div
+                                x-show="dropdownOpen"
+                                @mouseover.away="dropdownOpen = false"
+                                @click.away="dropdownOpen = false"
+                                @click="dropdownOpen = false, menuOpen = false"
+                                class="md:absolute md:shadow-lg"
+                            >
+                                <div class="ml-4 md:ml-0 md:bg-green-500 md:rounded px-2 pt-2 pb-2">
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html"
+                                        >Übersicht</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#einzeltherapie"
+                                        >Einzeltherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#gruppentherapie"
+                                        >Gruppentherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#atemtherapie"
+                                        >Atemtherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#gestalttherapie"
+                                        >Gestalt- und Körpertherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#kindertherapie"
+                                        >Kinder- und Jugendlichentherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#paartherapie"
+                                        >Paar- und Familientherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#tiefenpsychologie"
+                                        >Tiefenpsychologisch fundierte Psychotherapie</a
+                                    >
+                                    <a
+                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        href="therapie.html#vt"
+                                        >Verhaltenstherapie</a
+                                    >
+                                </div>
+                                <!--<ul class="ml-4 md:ml-0 md:bg-green-500 md:rounded px-2 pt-2 md:pb-2">
+                                    <li class="md:hidden"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html">Übersicht</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#einzeltherapie">Einzeltherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#gruppentherapie">Gruppentherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#atemtherapie">Atemtherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#gestalttherapie">Gestalt- und Körpertherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#kindertherapie">Kinder- und Jugendlichentherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#paartherapie">Paar- und Familientherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#tiefenpsychologie">Tiefenpsychologisch fundierte Psychotherapie</a></li>
+                                    <li class="mt-1"><a class="rounded hover:bg-green-200 px-2 mt-2" href="therapie.html#vt">Verhaltenstherapie</a></li>
+                                </ul>-->
+                            </div>
+                        </div>
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            >Beratung</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            >Supervision</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            href="team.html"
+                            >Team</a
+                        >
+                        <a
+                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            href="./index.html#kontakt"
+                            @click="menuOpen = false"
+                            >Kontakt</a
+                        >
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container mx-auto mt-5 px-4 2xl:px-40">
+            <main class="lg:px-40 min-h-screen">
+                <div id="team">
+                    <h1 class="text-4xl md:text-5xl">Unser Team</h1>
+                    <p class="mt-3 md:mt-5">
+                        Unser Team stellt Ihnen verschiedene anerkannte Behandlungs- und Beratungsangebote zur
+                        Verfügung. Unterschiedliche berufliche Herkunft, fundierte Ausbildungen, sowie die
+                        Erfahrung aus unserer langjährigen Zusammenarbeit ermöglichen eine individuelle
+                        Berücksichtigung Ihrer Anliegen.
+                    </p>
+
+                    <div class="mt-5">
+                        <div class="md:flex rounded-xl p-8 md:p-0 mb-5">
+                            <img
+                                class="flex-shrink-0 w-36 h-36 md:w-40 md:h-auto rounded-full md:rounded-xl object-cover mx-auto md:m-0"
+                                src="JohnCossmann.jpg"
+                                alt="John Coßmann"
+                            />
+                            <div class="pt-6 md:p-8">
+                                <div class="text-center md:text-left">
+                                    <h2 class="text-2xl font-medium">John Coßmann</h2>
+                                    <div class="text-green-500 font-medium mb-2">
+                                        Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                    </div>
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:flex rounded-xl p-8 md:p-0 mb-5">
+                            <img
+                                class="flex-shrink-0 w-36 h-36 md:w-40 md:h-auto rounded-full md:rounded-xl object-cover mx-auto md:m-0"
+                                src="JohnCossmann.jpg"
+                                alt="John Coßmann"
+                            />
+                            <div class="pt-6 md:p-8">
+                                <div class="text-center md:text-left">
+                                    <h2 class="text-2xl font-medium">John Coßmann</h2>
+                                    <div class="text-green-500 font-medium mb-2">
+                                        Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                    </div>
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:flex rounded-xl p-8 md:p-0 mb-5">
+                            <img
+                                class="flex-shrink-0 w-36 h-36 md:w-40 md:h-auto rounded-full md:rounded-xl object-cover mx-auto md:m-0"
+                                src="JohnCossmann.jpg"
+                                alt="John Coßmann"
+                            />
+                            <div class="pt-6 md:p-8">
+                                <div class="text-center md:text-left">
+                                    <h2 class="text-2xl font-medium">John Coßmann</h2>
+                                    <div class="text-green-500 font-medium mb-2">
+                                        Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                    </div>
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:flex rounded-xl p-8 md:p-0 mb-5">
+                            <img
+                                class="flex-shrink-0 w-36 h-36 md:w-40 md:h-auto rounded-full md:rounded-xl object-cover mx-auto md:m-0"
+                                src="JohnCossmann.jpg"
+                                alt="John Coßmann"
+                            />
+                            <div class="pt-6 md:p-8">
+                                <div class="text-center md:text-left">
+                                    <h2 class="text-2xl font-medium">John Coßmann</h2>
+                                    <div class="text-green-500 font-medium mb-2">
+                                        Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                    </div>
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--
+                    <div class="flex space-x-4">
+                        <div class="flex items-center bg-gray-200 rounded-lg p-6">
+                            <img
+                                class="h-16 w-auto md:h-32 md:w-auto rounded mx-0 mr-6 flex-shrink-0"
+                                src="JohnCossmann.jpg"
+                            />
+                            <div class="text-left">
+                                <h2 class="text-xl">John Coßmann</h2>
+                                <div class="text-green-700 mb-2">
+                                    Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-gray-200 rounded-lg p-6">
+                            <img
+                                class="h-16 w-auto md:h-24 md:w-auto rounded mx-0 mr-6 flex-shrink-0"
+                                src="JohnCossmann.jpg"
+                            />
+                            <div class="text-left">
+                                <h2 class="text-lg">John Coßmann</h2>
+                                <div class="text-orange-700">
+                                    Diplom-Soziologe, Systemischer Supervisor, Gestalttherapeut
+                                </div>
+                                <div class="">Teamentwicklung, Coaching, Supervision</div>
+                                <div class="">
+                                    Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
+                                    Gestalttherapeut tätig
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    --></div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <div class="w-2 h-20 m-0 ml-auto p-0 bg-green-500"></div>
+            <div class="w-full h-2 m-0 p-0 bg-green-500"></div>
+        </footer>
+
+        <script src="" async defer></script>
+    </body>
+</html>
