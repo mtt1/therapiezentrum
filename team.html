@@ -87,16 +87,16 @@
                         class="mt-4 md:mt-0 -ml-2 md:ml-0 md:flex"
                     >
                         <!--<div x-data="{ dropdownOpen: false }">-->
-                        <div class="dropdown">
+                        <div class="dropdown group">
                             <a
                                 @mouseover="dropdownOpen = true"
-                                class="hidden md:block rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                class="hidden md:block hover:underline pl-4 pr-2"
                                 href="therapie.html"
                                 >Therapie ▾</a
                             >
                             <a
                                 @click="dropdownOpen = true"
-                                class="block md:hidden rounded hover:bg-green-200 md:hover:bg-green-500 px-2"
+                                class="block md:hidden hover:underline px-2"
                                 >Therapie ▾</a
                             >
                             <div
@@ -104,51 +104,51 @@
                                 @mouseover.away="dropdownOpen = false"
                                 @click.away="dropdownOpen = false"
                                 @click="dropdownOpen = false, menuOpen = false"
-                                class="md:absolute md:shadow-lg"
+                                class="md:absolute"
                             >
-                                <div class="ml-4 md:ml-0 md:bg-green-500 md:rounded px-2 pt-2 pb-2">
+                                <div class="ml-4 md:ml-0 md:bg-white px-2 pt-2 pb-2 md:group-hover:shadow-xl">
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html"
                                         >Übersicht</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#einzeltherapie"
                                         >Einzeltherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#gruppentherapie"
                                         >Gruppentherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#atemtherapie"
                                         >Atemtherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#gestalttherapie"
                                         >Gestalt- und Körpertherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#kindertherapie"
                                         >Kinder- und Jugendlichentherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#paartherapie"
                                         >Paar- und Familientherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#tiefenpsychologie"
                                         >Tiefenpsychologisch fundierte Psychotherapie</a
                                     >
                                     <a
-                                        class="block rounded hover:bg-green-200 px-2 mt-1"
+                                        class="block hover:underline px-2 mt-1"
                                         href="therapie.html#vt"
                                         >Verhaltenstherapie</a
                                     >
@@ -167,20 +167,20 @@
                             </div>
                         </div>
                         <a
-                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            class="block hover:underline px-2 mt-2 md:mt-0 md:ml-4"
                             >Beratung</a
                         >
                         <a
-                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            class="block hover:underline px-2 mt-2 md:mt-0 md:ml-4"
                             >Supervision</a
                         >
                         <a
-                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            class="block hover:underline px-2 mt-2 md:mt-0 md:ml-4"
                             href="team.html"
                             >Team</a
                         >
                         <a
-                            class="block rounded hover:bg-green-200 md:hover:bg-green-500 px-2 mt-2 md:mt-0 md:ml-4"
+                            class="block hover:underline px-2 mt-2 md:mt-0 md:ml-4"
                             href="./index.html#kontakt"
                             @click="menuOpen = false"
                             >Kontakt</a
@@ -219,6 +219,13 @@
                                 <div class="">
                                     Seit 1992 im Therapiezentrum Berlin e.V. als Supervisor und
                                     Gestalttherapeut tätig
+                                </div>
+                                <div class="mt-2">
+                                        <a class="hover:underline" href="therapie.html#gestalttherapie"
+                                        >Gestalt- und Körpertherapie</a>,
+                                        <a class="hover:underline" href="therapie.html#paartherapie"
+                                        >Paar- und Familientherapie</a>,
+                                        Supervision.
                                 </div>
                             </div>
                         </div>
